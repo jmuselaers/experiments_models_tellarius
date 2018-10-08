@@ -225,7 +225,7 @@ probExtract_udf = udf(lambda prob: float(prob[1]))
 # If you need to inspect the predictions...
 
 final_predictions=predictions.withColumn("prob",probExtract_udf(predictions.probability))
-final_predictions.write.mode("Overwrite").saveAsTable("telco_predictions")
+#final_predictions.write.mode("Overwrite").saveAsTable("telco_predictions")
 final_predictions.select('prediction','prob').filter('prediction = 1').sort('prob',ascending=False).limit(20).toPandas()
 
 # or look at feature importance
