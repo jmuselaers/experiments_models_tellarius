@@ -29,7 +29,7 @@ assembler = VectorAssembler(
 
 param_numTrees=int(sys.argv[1])
 param_maxDepth=int(sys.argv[2])
-param_impurity=sys.argv[3]
+param_impurity='gini'
 
 from pyspark.ml import Pipeline
 from pyspark.ml.classification import RandomForestClassifier
