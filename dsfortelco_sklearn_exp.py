@@ -37,7 +37,7 @@ features = ["intl_plan_indexed","account_length", "number_vmail_messages", "tota
 
 param_numTrees = int(sys.argv[1])
 param_maxDepth = int(sys.argv[2])
-param_impurity = sys.argv[3]
+param_impurity = 'gini'
 
 randF=RandomForestClassifier(n_jobs=10,
                              n_estimators=param_numTrees, 
