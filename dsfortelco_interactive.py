@@ -39,6 +39,8 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 import pandas as pd
+import os
+
 #pd.options.display.html.table_schema = True
 
 spark = SparkSession.builder \
@@ -46,7 +48,7 @@ spark = SparkSession.builder \
       .getOrCreate()
     
 schemaData = StructType([StructField("state", StringType(), True),StructField("account_length", DoubleType(), True),StructField("area_code", StringType(), True),StructField("phone_number", StringType(), True),StructField("intl_plan", StringType(), True),StructField("voice_mail_plan", StringType(), True),StructField("number_vmail_messages", DoubleType(), True),     StructField("total_day_minutes", DoubleType(), True),     StructField("total_day_calls", DoubleType(), True),     StructField("total_day_charge", DoubleType(), True),     StructField("total_eve_minutes", DoubleType(), True),     StructField("total_eve_calls", DoubleType(), True),     StructField("total_eve_charge", DoubleType(), True),     StructField("total_night_minutes", DoubleType(), True),     StructField("total_night_calls", DoubleType(), True),     StructField("total_night_charge", DoubleType(), True),     StructField("total_intl_minutes", DoubleType(), True),     StructField("total_intl_calls", DoubleType(), True),     StructField("total_intl_charge", DoubleType(), True),     StructField("number_customer_service_calls", DoubleType(), True),     StructField("churned", StringType(), True)])
-churn_data = spark.read.schema(schemaData).csv('/tmp/churn.all')
+churn_data = spark.read.schema(schemaData).csv('/user/' + os.environ['HADOOP_USER_NAME'] + '/churn.all')
 
 
 # # Basic DataFrame operations
