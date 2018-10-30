@@ -3,6 +3,7 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import trim
 import pandas as pd
 import cdsw
+import os
 
 spark = SparkSession.builder \
       .appName("Telco Customer Churn") \
