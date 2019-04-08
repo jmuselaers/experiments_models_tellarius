@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pip3 install sklearn
+
 if [ -d "models/spark/" ] 
 then
   rm -r -f models/spark/*
